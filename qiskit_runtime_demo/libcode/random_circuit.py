@@ -12,6 +12,6 @@ class RandomCircuit:
 
     def create_new_random_circuit(self):
         """Creates random circuits with increased circuit depth"""
-        self.depth = self.depth + 1
         circuit = random_circuit(num_qubits=5, depth=self.depth, measure=True, seed=random.randint(0, 1000))
+        self.depth = self.depth + 1
         return transpile(circuit, self.backend)

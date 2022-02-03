@@ -34,7 +34,8 @@ def main(backend, user_messenger, **kwargs) -> Any:
     random_circ = RandomCircuit(iterations, backend)
     for it in range(iterations):
         qc = random_circ.create_new_random_circuit()
+        depth = qc.depth()
         result = backend.run(qc).result()
-        user_messenger.publish({"iteration": it, "counts": result.get_counts()})
+        user_messenger.publish({"iteration": it, "counts": result.get_counts(), "depth": depth})
 
     return "All done!"

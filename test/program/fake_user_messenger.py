@@ -25,7 +25,7 @@ class FakeUserMessenger:
 
     def __init__(self):
         self.call_count = 0
-        self.message = None
+        self. messages = list()
 
     def publish(
         self,
@@ -37,5 +37,6 @@ class FakeUserMessenger:
 
         Increments the number of times this method is called and stores the message arg.
         """
-        self.message = message
+        self.messages.append(message)
         self.call_count += 1
+

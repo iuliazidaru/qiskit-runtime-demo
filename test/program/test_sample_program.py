@@ -36,3 +36,5 @@ class TestSampleProgram(TestCase):
         unserialized_inputs = json.loads(serialized_inputs, cls=RuntimeDecoder)
         sample_program.main(self.backend, self.user_messenger, **unserialized_inputs)
         self.assertEqual(self.user_messenger.call_count, inputs["iterations"])
+        self.assertEqual(self.user_messenger.messages[0]['depth'], 1)
+        self.assertEqual(self.user_messenger.messages[1]['depth'], 2)
