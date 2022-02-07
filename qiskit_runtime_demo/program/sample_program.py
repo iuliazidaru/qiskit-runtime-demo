@@ -36,6 +36,6 @@ def main(backend, user_messenger, **kwargs) -> Any:
         qc = random_circ.create_new_random_circuit()
         depth = qc.depth()
         result = backend.run(qc).result()
-        user_messenger.publish({"iteration": it, "counts": result.get_counts(), "depth": depth})
+        user_messenger.publish({"iteration": it, "counts": result.get_counts(), "transpiled_depth": depth})
 
     return "All done!"
